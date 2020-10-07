@@ -21,13 +21,24 @@ header,form{
     align-items: center;
     flex-wrap: wrap;
 }
+/*
+.alreat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#50BFC3;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin:0 30rem;
+    background: white;
+}
+*/
 
 form input{
     color:#50BFC3;
     font-weight: bold;
     font-size: 1rem;
-    padding: 1rem;
-    padding-left: 2rem;
+    padding: 1rem 1.3rem;
 }
 
 
@@ -39,7 +50,7 @@ form input, form button{
 
 form button{
     font-size: 2rem;
-    padding: 0.43rem 1rem;
+    padding: 0.44rem 1rem;
     color: #50BFC3;
     background-color: white;
     cursor: pointer;
