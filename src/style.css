@@ -27,6 +27,7 @@ form input{
     font-weight: bold;
     font-size: 1rem;
     padding: 1rem;
+    padding-left: 2rem;
 }
 
 
@@ -38,7 +39,7 @@ form input, form button{
 
 form button{
     font-size: 2rem;
-    padding: 0.45rem;
+    padding: 0.43rem 1rem;
     color: #50BFC3;
     background-color: white;
     cursor: pointer;
