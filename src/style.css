@@ -5,12 +5,13 @@
 }
 
 body{
-    background-image: linear-gradient(120deg,#061528,#000103);
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
     min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
 }
 
-header{
-    color:#50BFC3;
+header h1{
+    color: #000103;
 }
 
 header,form{
@@ -55,10 +56,56 @@ form button{
     background-color: white;
     cursor: pointer;
     margin: 0.01rem;
-    transition: all 0.5s ease;
+    transition: all 0.5 ease;
 }
 
 form button:hover{
     background: #50BFC3;
     color: white;
+}
+
+.todo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo{
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:0.7rem;
+    font-size:1.3rem;
+    border-radius: 0.3rem;
+}
+
+.todo-list{
+    min-width: 48%;
+    list-style: none;
+}
+
+.todo li{
+    flex:1;
+    color: grey;
+    font-weight: bold;
+}
+
+.todo-item{
+    padding: 0 0.8rem 0 0.6rem;
+}
+
+.completed-btn,.trash-btn{
+    border:none;
+    color:#50BFC3;
+    padding: 0.8rem 1.1rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: bold;
+    outline: none;
+    transition:all 0.5s ease;
+}
+
+.completed-btn:hover,.trash-btn:hover{
+    background-color: #000103;
 }
