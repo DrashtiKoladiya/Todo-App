@@ -109,7 +109,7 @@ form button:hover{
     padding: 0 0.8rem 0 0.6rem;
 }
 
-.fa-cheak,.fa-trash-o{
+.fa-check,.fa-trash-o{
     pointer-events: none;
 }
 
