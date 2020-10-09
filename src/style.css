@@ -131,6 +131,7 @@ form button:hover{
 .cheaked{
     opacity: 0.25;
     text-transform: uppercase;
+    transform: translateX(0.3rem);
 }
 
 .animation-remove{
