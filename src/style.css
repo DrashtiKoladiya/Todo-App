@@ -68,8 +68,8 @@ form button{
 }
 
 form button:hover{
-    background: #50BFC3;
-    color: white;
+    background: #000103;
+    color:#50BFC3;
 }
 
 .todo-container{
@@ -137,4 +137,21 @@ form button:hover{
 .animation-remove{
     animation:todoFade 0.8s ease forwards;
 }
+
+@media (max-width:500px) {
+    .gradient-text{
+        font-size: 2.1rem;
+    }    
+    header{
+        min-height: 20vh;
+    }
+    .todo-list{
+        min-width: 90%;
+        list-style: none;
+    }
+    .todo{
+        font-size: 1rem;
+    }
+}
+  
 
