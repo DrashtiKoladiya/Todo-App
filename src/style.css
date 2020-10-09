@@ -5,7 +5,8 @@
 }
 
 body{
-    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    /*background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);*/
+    background-image: linear-gradient(to right top, #121316, #0e1214, #0c1011, #0b0e0d, #0b0c0a);
     min-height: 100vh;
     font-family: 'Roboto', sans-serif;
 }
@@ -14,9 +15,16 @@ header h1{
     color: #000103;
 }
 
+.gradient-text{
+    font-size: 3rem;
+    background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf); 
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
+}
+
 header,form{
     min-height: 20vh;
-    color:#50BFC3;
+    color:black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +44,7 @@ header,form{
 */
 
 form input{
-    color:#50BFC3;
+    color:black;
     font-weight: bold;
     font-size: 1rem;
     padding: 1rem 1.3rem;
@@ -52,7 +60,7 @@ form input, form button{
 form button{
     font-size: 2rem;
     padding: 0.44rem 1rem;
-    color: #50BFC3;
+    color: black;
     background-color: white;
     cursor: pointer;
     margin: 0.01rem;
@@ -78,6 +86,11 @@ form button:hover{
     margin:0.7rem;
     font-size:1.3rem;
     border-radius: 0.3rem;
+    transition: all 0.3s ease-in;
+}
+
+.todo:hover{
+    background: #e6e3e3;
 }
 
 .todo-list{
@@ -87,7 +100,7 @@ form button:hover{
 
 .todo li{
     flex:1;
-    color: grey;
+    color: black;
     font-weight: bold;
 }
 
