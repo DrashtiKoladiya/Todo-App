@@ -1,9 +1,10 @@
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
-
+const todoItem = document.querySelector('.todo');
 // adding event listener for adding todo
 todoButton.addEventListener('click',addTodo);
+todoList.addEventListener('click',CompleteDelete);
 
 function addTodo(event){
     event.preventDefault();
@@ -33,5 +34,20 @@ function addTodo(event){
         todoList.append(todoDiv);
 
         todoInput.value = "";
+    }
+}
+
+function CompleteDelete(event)
+{
+    const item = event.target;
+    const todo = item.parentElement;
+    if(item.classList[0]==="trash-btn")
+    {
+        todo.classList.add('animation-remove');
+        todo.remove();
+    }
+    else if(item.classList[0]==="completed-btn")
+    {
+        todo.classList.toggle('cheaked');
     }
 }
