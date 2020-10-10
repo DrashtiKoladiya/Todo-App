@@ -86,7 +86,6 @@ form button:hover{
     margin:0.7rem;
     font-size:1.3rem;
     border-radius: 0.3rem;
-    text-transform: capitalize;
     transition: all 0.3s ease-in;
 }
 
