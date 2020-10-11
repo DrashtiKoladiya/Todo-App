@@ -54,6 +54,7 @@ function CompleteDelete(event)
     }
 }
 
+//save to do to the local storage
 function saveToLocal(todoEle)
 {
     let todos,todosClass;
@@ -69,6 +70,7 @@ function saveToLocal(todoEle)
     localStorage.setItem('todosClass',JSON.stringify(todosClass));
 }
 
+//shows full todo list when the documents gets fully loaded.
 function Show()
 {
     let todos,todosClass;
@@ -103,6 +105,8 @@ function Show()
     );
 }
 
+
+//toggle class cheaked for completed and uncompleted items
 function updateLocalClass(todo)
 {
     let todos,todosClass;
@@ -119,13 +123,14 @@ function updateLocalClass(todo)
     }
     else
     {
-        todosClass[IndexE] = 'cheaked'
+        todosClass[IndexE] = 'cheaked';
     }
     localStorage.setItem('todos',JSON.stringify(todos));
     localStorage.setItem('todosClass',JSON.stringify(todosClass));
 
 }
 
+//for removing item's completely from the local storage..
 function removeFromLoal(todo)
 {
     let todos,todosClass;
