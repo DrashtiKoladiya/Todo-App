@@ -2,7 +2,8 @@ const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
 const todoItem = document.querySelector('.todo');
-// adding event listener for adding todo
+
+
 document.addEventListener('DOMcontentLoaded',Show());
 todoButton.addEventListener('click',addTodo);
 todoList.addEventListener('click',CompleteDelete);
@@ -13,10 +14,9 @@ function addTodo(event){
         alert("Please enter Todo");
     }
     else{
-        //making a totally new todo element from scratch
         const todoDiv = document.createElement('div');
         todoDiv.classList.add('todo');
-
+        saveToLocal(todoInput.value);
         const newTodo = document.createElement('li');
         newTodo.classList.add('todo-item');
         newTodo.innerText = todoInput.value;
@@ -31,7 +31,6 @@ function addTodo(event){
         trashButton.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
         trashButton.classList.add('trash-btn');
         todoDiv.appendChild(trashButton);
-        saveToLocal(todoDiv);
         todoList.append(todoDiv);
 
         todoInput.value = "";
@@ -45,39 +44,45 @@ function CompleteDelete(event)
     if(item.classList[0]==="trash-btn")
     {
         todo.classList.add('animation-remove');
-        //console.log(todo);
         removeFromLoal(todo);
         todo.remove();
     }
     else if(item.classList[0]==="completed-btn")
     {
+        updateLocalClass(todo);
         todo.classList.toggle('cheaked');
     }
 }
 
 function saveToLocal(todoEle)
 {
-    let todos;
-    if(localStorage.getItem('todos')===null) todos = [];
+    let todos,todosClass;
+    if(localStorage.getItem('todos')===null) todos = [],todosClass=[];
     else{
         todos = JSON.parse(localStorage.getItem('todos'));
+        todosClass = JSON.parse(localStorage.getItem('todosClass'));
+        
     }
-    const todo = todoEle.children[0].innerText;
-    todos.push(todo);
+    todos.push(todoEle);
+    todosClass.push('Uncheaked');
     localStorage.setItem('todos',JSON.stringify(todos));
+    localStorage.setItem('todosClass',JSON.stringify(todosClass));
 }
 
 function Show()
 {
-    let todos;
-    if(localStorage.getItem('todos')===null) todos = [];
+    let todos,todosClass;
+    if(localStorage.getItem('todos')===null) todos = [],todosClass=[];
     else{
         todos = JSON.parse(localStorage.getItem('todos'));
+        todosClass = JSON.parse(localStorage.getItem('todosClass'));
+        
     }
     todos.forEach(function(todo){
         const todoDiv = document.createElement('div');
         todoDiv.classList.add('todo');
-
+        const indexE = todos.indexOf(todo);
+        if(todosClass[indexE]==='cheaked') todoDiv.classList.add(todosClass[indexE]);
         const newTodo = document.createElement('li');
         newTodo.classList.add('todo-item');
         newTodo.innerText = todo;
@@ -98,16 +103,41 @@ function Show()
     );
 }
 
+function updateLocalClass(todo)
+{
+    let todos,todosClass;
+    if(localStorage.getItem('todos')===null) todos = [],todosClass=[];
+    else{
+        todos = JSON.parse(localStorage.getItem('todos'));
+        todosClass = JSON.parse(localStorage.getItem('todosClass'));   
+    }
+    const value1 = todo.children[0].innerText;
+    const IndexE = todos.indexOf(value1);
+    if(todosClass[IndexE] === 'cheaked')
+    {
+        todosClass[IndexE] = 'Uncheaked';
+    }
+    else
+    {
+        todosClass[IndexE] = 'cheaked'
+    }
+    localStorage.setItem('todos',JSON.stringify(todos));
+    localStorage.setItem('todosClass',JSON.stringify(todosClass));
+
+}
+
 function removeFromLoal(todo)
 {
-    let todos;
-    if(localStorage.getItem('todos')===null) todos = [];
+    let todos,todosClass;
+    if(localStorage.getItem('todos')===null) todos = [],todosClass=[];
     else{
-        //console.log(localStorage.getItem('todos'));
         todos = JSON.parse(localStorage.getItem('todos'));
+        todosClass = JSON.parse(localStorage.getItem('todosClass'));   
     }
-
     const value1 = todo.children[0].innerText;
-    todos.splice(todos.indexOf(value1),1);
+    const IndexE = todos.indexOf(value1);
+    todos.splice(IndexE,1);
+    todosClass.splice(IndexE,1);
     localStorage.setItem('todos',JSON.stringify(todos));
+    localStorage.setItem('todosClass',JSON.stringify(todosClass));
 }
