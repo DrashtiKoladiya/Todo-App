@@ -1,3 +1,3 @@
 # Todo-App
 
-Simple to-do list
+A Simple Todos Web App
